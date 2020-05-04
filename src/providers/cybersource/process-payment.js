@@ -1,14 +1,20 @@
-'use strict';
-
 // import Configuration from "./config/settings";
 
-import * as cybersource from 'cybersource-rest-client';
+// import * as cybersourceRestApi from './config/cybersource';
+// const cybersourceRestApi = require('./config/cybersource');
+import * as cybersourceRestApi from './config/cybersource';
 
 export default class processPayment {
   constructor() {
-    console.log(cybersource);
+    console.log('my object', cybersourceRestApi);
   }
+
+  // async getAlgo() {
+  //   return await cybersourceRestApi();
+  // }
 }
+
+
 // export default class processPayment {
 
 //   enableCapture = false;

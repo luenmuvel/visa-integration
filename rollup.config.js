@@ -1,4 +1,3 @@
-import json from '@rollup/plugin-json';
 import { terser } from 'rollup-plugin-terser';
 import nodePolyfills from 'rollup-plugin-node-polyfills';
 import resolve from '@rollup/plugin-node-resolve';
@@ -11,17 +10,18 @@ export default {
   output: [
     {
       file: 'dist/bundle.js',
-      format: 'umd'
+      format: 'esm',
+      name: 'belpay-sdk',
+      plugins: [terser()]
     },
     {
       file: 'dist/bundle.min.js',
-      format: 'iife',
+      format: 'esm',
       name: 'version',
       plugins: [terser()]
     },
   ],
   plugins: [
-    json(),
     resolve(),
     nodePolyfills(),
     babel({
@@ -33,6 +33,10 @@ export default {
       contentBase: 'dist',
       historyApiFallback: true
     }),
-    commonjs()
+    commonjs({
+      include: [
+        'node_modules/cybersource-rest-client'
+      ]
+    }),
   ],
 }
