@@ -2,16 +2,13 @@
 
 // import * as cybersourceRestApi from './config/cybersource';
 // const cybersourceRestApi = require('./config/cybersource');
-import * as cybersourceRestApi from './config/cybersource';
+import * as cybersourceRestApi from 'cybersource-rest-client';
 
 export default class processPayment {
   constructor() {
     console.log('my object', cybersourceRestApi);
   }
 
-  // async getAlgo() {
-  //   return await cybersourceRestApi();
-  // }
 }
 
 
